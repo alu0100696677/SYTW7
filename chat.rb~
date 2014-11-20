@@ -47,6 +47,18 @@ get '/update' do
   HTML
 end
 
+get '/update/usuarios' do
+  return [404, {}, "Not an ajax request"] unless request.xhr?
+  @userList = users
+    erb <<-'HTML', :layout => false
+      <ol>
+        <% @userList.each do |user| %>
+          <li id="col" class="bg-primary"><%= user %><br></li>
+        <% end %>
+      </ol>
+    HTML
+end
+
 get '/salir' do
   users.delete_if { |element| element == session[:name]}
   session.clear

@@ -5,7 +5,7 @@ require 'sinatra/flash'
 #set :environment, :production
 
 enable :sessions
-set :sessions_secret, '*&(^#234a)'
+set :session_secret, '*&(^#234a)'
 
 chat = ['bienvenido..']
 users = Array.new
@@ -18,8 +18,8 @@ end
 post '/index' do
   puts "inside post '/index/': #{params}"
   if !users.include?(params[:name]) then
-    session[:name] = params[:name]
-    users.push session[:name]
+    session[:user] = params[:name]
+    users.push session[:user]
     @userList = users
     erb :index
   else
@@ -30,7 +30,7 @@ end
 
 get '/send' do
   return [404, {}, "Not an ajax request"] unless request.xhr?
-  chat << "#{session[:name]} : #{params['text']}"
+  chat << "#{session[:user]} : #{params['text']}"
   nil
 end
 
