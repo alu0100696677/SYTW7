@@ -19,4 +19,14 @@ $('#text').keypress(
       );
     },
   1000);
+  setInterval(
+    function(){
+      $.get('/update/usuarios',{},
+        function(response){
+          $('#lista').empty();
+          $('#lista').append(response);
+        }
+      )
+    },
+  1000);
 })();
