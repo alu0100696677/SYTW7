@@ -60,7 +60,7 @@ get '/update/usuarios' do
 end
 
 get '/salir' do
-  users.delete_if { |element| element == session[:name]}
+  users.delete_if { |element| element == session[:user]}
   session.clear
   redirect '/'
 end
