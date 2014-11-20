@@ -1,28 +1,66 @@
 # -*- coding: utf-8 -*-
+require 'coveralls'
+Coveralls.wear!
 ENV['RACK_ENV'] = 'test'
 require_relative '../chat.rb'
+require 'test/unit'
 require 'minitest/autorun'
 require 'rack/test'
 require 'sinatra'
 require 'selenium-webdriver'
 require 'rubygems'
 
+include Rack::Test::Methods
 
-describe "Selenium test prueba" do
-	before :each do
+def app
+  Sinatra::Application
+end
+
+describe "Pagina registro" do
+	before :all do
 		@browser = Selenium::WebDriver.for :firefox
 		@url = 'localhost:4567/'
 		@browser.get(@url)		
 	end
 	
-	it "Pagina de Registro" do
+	it "Abrir pagina registro" do
 		begin
 			element = @browser.find_element(:id,"login")
 		ensure
 			element = element.text.to_s
-			assert_equal(true, element.include?("Sign In"))
+			assert_equal(true, element.include?("Entrar"))
 			@browser.quit
 		end
 	end
+
+	it "Registro usuario nuevo" do
+		@browser.find_element(:id,"name").send_keys("belen")
+		begin
+			element = @browser.find_element(:id,"login")
+		ensure
+			element.click
+			assert_equal("http://localhost:4567/index",@browser.current_url)
+			@browser.quit
+		end
+
+	end
+	
+	it "Usuario ya existente" do
+                @browser.find_element(:id,"nombre").send_keys("belen")
+                begin
+                        element = @browser.find_element(:id,"login")
+			#flash = @browser.find_element(:id,"aviso")
+                ensure
+                        element.click
+			@browser.navigate.to(@url);
+			@browser.find_element(:id,"name").send_keys("belen")
+			@browser.find_element(:id,"login").click
+			flash = @browser.find_element(:id,"aviso")
+			flash = flash.text.to_s
+			assert_equal(false, flash.include?("El nombre elegido ya está en uso."))
+			@browser.quit
+                end
+
+        end
 	
 end

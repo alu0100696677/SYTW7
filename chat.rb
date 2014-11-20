@@ -23,7 +23,7 @@ post '/index' do
     @userList = users
     erb :index
   else
-    flash[:error] = "El nombre elegido ya está en uso."
+    flash[:error] = "El nombre elegido ya esta en uso."
     redirect '/'
   end
 end
@@ -52,8 +52,8 @@ get '/update/usuarios' do
   @userList = users
     erb <<-'HTML', :layout => false
       <ol>
-        <% @userList.each do |user| %>
-          <li id="col" class="bg-primary"><%= user %><br></li>
+        <% @userList.each do |usuario| %>
+          <li id="col" class="bg-primary"><%= usuario %><br></li>
         <% end %>
       </ol>
     HTML
@@ -62,6 +62,13 @@ end
 get '/salir' do
   users.delete_if { |element| element == session[:user]}
   session.clear
+  redirect '/'
+end
+
+get '/limpiar' do
+  users.clear
+  chat.clear
+  @userList = users
   redirect '/'
 end
 
