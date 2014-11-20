@@ -8,10 +8,10 @@ gem 'rest-client'
 
 group :development, :test do
   gem 'selenium-webdriver'
-  gem 'rack-test'
-  gem 'rspec'
   gem 'rake'
   gem 'minitest'
   gem 'test-unit'
   gem 'coveralls', require: false
+  gem 'rack-test'
+  gem 'rspec'
 end
