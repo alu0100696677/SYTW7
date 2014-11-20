@@ -19,7 +19,10 @@ end
 describe "Pagina registro" do
 	before :all do
 		@browser = Selenium::WebDriver.for :firefox
-		@url = 'localhost:4567/'
+		@url = 'https://sytw-chat.herokuapp.com/'
+		if (ARGV[0].to_s == "localhost")
+			@url = 'localhost:4567/'
+		end
 		@browser.get(@url)		
 	end
 	

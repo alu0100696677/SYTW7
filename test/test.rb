@@ -19,7 +19,10 @@ end
 describe "Pagina registro" do
 	before :all do
 		@browser = Selenium::WebDriver.for :firefox
-		@url = 'localhost:4567/'
+		@url = 'https://sytw-chat.herokuapp.com/'
+		if (ARGV[0].to_s == "localhost")
+			@url = 'localhost:4567/'
+		end
 		@browser.get(@url)		
 	end
 	
@@ -34,12 +37,12 @@ describe "Pagina registro" do
 	end
 
 	it "Registro usuario nuevo" do
-		@browser.find_element(:id,"name").send_keys("belen")
+		@browser.find_element(:id,"nombre").send_keys("ana")
 		begin
 			element = @browser.find_element(:id,"login")
 		ensure
 			element.click
-			assert_equal("http://localhost:4567/index",@browser.current_url)
+			assert_equal("https://sytw-chat.herokuapp.com/index",@browser.current_url)
 			@browser.quit
 		end
 
