@@ -9,7 +9,7 @@
     <div id="chat"></div>
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src= "chat.js"></script>
+    <script src= "./js/chat.js"></script>
   </body>
 </html>
 

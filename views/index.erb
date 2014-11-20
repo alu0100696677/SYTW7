@@ -1,15 +1,54 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
   <head>
-    <style>
-      #text{width:100%; font-size: 15px; padding: 5px; display: block;}
-    </style>
+                <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+                <meta charset="utf-8">
+                <title>Chat app</title>
+                <meta name="generator" content="Bootply" />
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+                <link href="css/bootstrap.min.css" rel="stylesheet">
+                <link href="css/estilo.css" rel="stylesheet">
   </head>
   <body>
-    <input id="text" placeholder="Write then press Enter." autofocus />
-    <div id="chat"></div>
+  <div class="container">
+        <div class="row">
+                <div class="col-md-12">
+                        <a href="/" class="center-block"><img alt="logo de la pagina" src="./img/cabecera.jpeg" /></a>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-2">
+                        <div class="panel panel-primary">
+                                <div class="panel-heading">Usuarios</div>
+                                        <div class="panel-body">
+                                                <div id="lista">
+                                                        <ol>
+                                                                <% @userList.each do |user| %>
+                                                                        <li id="col" class="bg-primary"><%= user %><br></li>
+                                                                <% end %>
+                                                       </ol>
+                                                </div>
 
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="col-md-10">
+                        <div class="panel panel-primary">
+                                <div class="panel-heading">CHAT <%= session[:name] %></div>
+                                <div class="panel-body">
+                                        <div id="chat"></div>
+                                </div>
+                                <div class="panel-footer">
+                                        <input id="text" class="form-control" placeholder="Escriba su mensaje y pulse enter para enviar." autofocus />
+                                        <a class="btn btn-large btn-info" href="/salir">Salir</a>
+                                </div>
+                        </div>
+                </div>
+        </div>
+  </div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src= "./js/chat.js"></script>
+    <script src= "./chat.js"></script>
   </body>
 </html>
 
