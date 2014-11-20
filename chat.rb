@@ -7,7 +7,7 @@ require 'sinatra/flash'
 enable :sessions
 set :session_secret, '*&(^#234a)'
 
-chat = ['bienvenido..']
+chat = ['Bienvenido..']
 users = Array.new
 @userList = []
 
