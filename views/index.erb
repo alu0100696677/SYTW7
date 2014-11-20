@@ -9,7 +9,7 @@
                 <link href="css/bootstrap.min.css" rel="stylesheet">
                 <link href="css/estilo.css" rel="stylesheet">
   </head>
-  <body>
+  <body onunload= "cerrarSesion()">
   <div class="container">
         <div class="row">
                 <div class="col-md-12">
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="panel-footer">
                                         <input id="text" class="form-control" placeholder="Escriba su mensaje y pulse enter para enviar." autofocus />
-                                        <a class="btn btn-large btn-info" href="/salir">Salir</a>
+                                        <button id="enviar" class="btn btn-primary btn-block">Enviar</button>
                                 </div>
                         </div>
                 </div>

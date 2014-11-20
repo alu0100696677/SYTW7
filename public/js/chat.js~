@@ -30,3 +30,8 @@ $('#text').keypress(
     },
   1000);
 })();
+
+function cerrarSesion() {
+  $.get('/salir');
+  $.get('/');
+};

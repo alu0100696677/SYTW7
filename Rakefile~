@@ -1,4 +1,4 @@
-task :default => :tests
+task :default => :server
 
 desc "run the chat server"
 task :server do
@@ -18,9 +18,4 @@ end
 desc "Visit the GitHub repo page"
 task :open do
   sh "open https://github.com/crguezl/chat-blazee"
-end
-
-desc "run the chat tests"
-task :tests do
-  sh "ruby test/test.rb"
 end

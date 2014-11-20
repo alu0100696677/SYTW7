@@ -30,3 +30,15 @@ $('#text').keypress(
     },
   1000);
 })();
+
+function cerrarSesion() {
+  $.get('/salir');
+  $.get('/');
+};
+
+$('#enviar').click(
+  function(){
+    $.get('/send',{text:$('#text').val()});
+    $('#text').val('');
+  }
+);
