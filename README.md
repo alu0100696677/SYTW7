@@ -19,7 +19,6 @@
 ###Tests
 
 `rake`
-`rake tests`
 
 ###Travis
 
