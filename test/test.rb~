@@ -37,12 +37,12 @@ describe "Pagina registro" do
 	end
 
 	it "Registro usuario nuevo" do
-		@browser.find_element(:id,"name").send_keys("belen")
+		@browser.find_element(:id,"nombre").send_keys("ana")
 		begin
 			element = @browser.find_element(:id,"login")
 		ensure
 			element.click
-			assert_equal("http://localhost:4567/index",@browser.current_url)
+			assert_equal("https://sytw-chat.herokuapp.com/index",@browser.current_url)
 			@browser.quit
 		end
 

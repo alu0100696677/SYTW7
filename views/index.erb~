@@ -13,7 +13,7 @@
   <div class="container">
         <div class="row">
                 <div class="col-md-12">
-                        <a href="/" class="center-block"><img alt="logo de la pagina" src="./img/cabecera.jpeg" /></a>
+                        <a href="/" class="center-block"><img alt="logo de la pagina" src="./img/cabecera.jpg" /></a>
                 </div>
         </div>
         <div class="row">
@@ -33,7 +33,7 @@
                                 </div>
                         </div>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
                         <div class="panel panel-primary">
                                 <div class="panel-heading">CHAT <%= session[:user] %></div>
                                 <div class="panel-body">
@@ -41,6 +41,7 @@
                                 </div>
                                 <div class="panel-footer">
                                         <input id="text" class="form-control" placeholder="Escriba su mensaje y pulse enter para enviar." autofocus />
+                                        <button id="enviar" class="btn btn-primary btn-block">Enviar</button>
                                 </div>
                         </div>
                 </div>
