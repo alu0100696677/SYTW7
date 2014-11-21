@@ -37,7 +37,7 @@ describe "Pagina registro" do
 	end
 
 	it "Registro usuario nuevo" do
-		@browser.find_element(:id,"nombre").send_keys("belen")
+		@browser.find_element(:id,"name").send_keys("belen")
 		begin
 			element = @browser.find_element(:id,"login")
 		ensure
@@ -49,7 +49,7 @@ describe "Pagina registro" do
 	end
 	
 	it "Usuario ya existente" do
-                @browser.find_element(:id,"nombre").send_keys("belen")
+                @browser.find_element(:id,"name").send_keys("belen")
                 begin
                         element = @browser.find_element(:id,"login")
 			#flash = @browser.find_element(:id,"aviso")

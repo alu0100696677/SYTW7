@@ -37,7 +37,7 @@ describe "Pagina registro" do
 	end
 
 	it "Registro usuario nuevo" do
-		@browser.find_element(:id,"nombre").send_keys("ana")
+		@browser.find_element(:id,"nombre").send_keys("belen")
 		begin
 			element = @browser.find_element(:id,"login")
 		ensure
